@@ -1,2 +1,2 @@
 # CPS493
-web server programming repo
+web server programming repository for my final project
