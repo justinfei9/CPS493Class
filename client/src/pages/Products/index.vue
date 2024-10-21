@@ -22,10 +22,7 @@ products.value = getAll().data
   gap: 1rem;
 }
 .shelf .box {
-  width: 300px;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 15rem;
+  flex-grow: 1;
 }
 </style>

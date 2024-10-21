@@ -15,11 +15,14 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       vue:
-        specifier: ^3.4.29
+        specifier: ^3.5.9
         version: 3.5.9(typescript@5.4.5)
       vue-router:
-        specifier: ^4.3.3
+        specifier: ^4.4.5
         version: 4.4.5(vue@3.5.9(typescript@5.4.5))
+      vuee:
+        specifier: 1.0.0-security
+        version: 1.0.0-security
     devDependencies:
       '@rushstack/eslint-patch':
         specifier: ^1.8.0
@@ -1678,6 +1681,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  vuee@1.0.0-security:
+    resolution: {integrity: sha512-G2zpv0uFO8SuyejC08+rvORombkT6fmnnklFsbIKQh+yCZTZ6F7m2BSmcigKWSnOi3GYZcXcOZzAnipNoYtVww==}
 
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
@@ -3345,6 +3351,8 @@ snapshots:
       '@vue/shared': 3.5.9
     optionalDependencies:
       typescript: 5.4.5
+
+  vuee@1.0.0-security: {}
 
   webpack-virtual-modules@0.6.2: {}
 
