@@ -7,23 +7,28 @@ export interface CartItem {
 }
 
 const shoppingCart = ref<CartItem[]>([])
+
 export const refCart = () => shoppingCart
+
 export const count = computed(() => shoppingCart.value.length)
+
 export const total = computed(() =>
   shoppingCart.value.reduce((total, item) => total + item.product.price * item.quantity, 0)
 )
 
 export function addToCart(product: Product) {
-  const item = shoppingCart.value.find((item) => item.product.id === product.id)
+  console.log('Adding product:', product)
+  const item = shoppingCart.value.find((i) => i.product.id === product.id)
   if (item) {
     item.quantity++
   } else {
     shoppingCart.value.push({ product, quantity: 1 })
   }
+  console.log('Current cart:', shoppingCart.value)
 }
 
 export function removeFromCart(product: Product) {
-  const index = shoppingCart.value.findIndex((item) => item.product.id === product.id)
+  const index = shoppingCart.value.findIndex((i) => i.product.id === product.id)
   if (index !== -1) {
     shoppingCart.value.splice(index, 1)
   }

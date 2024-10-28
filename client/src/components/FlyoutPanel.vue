@@ -3,13 +3,11 @@ const props = defineProps<{
   isOpen: boolean
 }>()
 </script>
-
 <template>
-  <div class="flyout" :class="{ isOpen: isOpen }">
-    <slot></slot>
+  <div class="flyout" :class="{ isOpen }">
+    <slot />
   </div>
 </template>
-
 <style scoped>
 .flyout {
   position: fixed;
@@ -23,14 +21,8 @@ const props = defineProps<{
   transform: translateX(85%);
   transition: transform 0.3s ease-in-out;
 }
-
-/* This is the correct way to apply the open state */
+.flyout:hover,
 .flyout.isOpen {
-  transform: translateX(0);
-}
-
-/* Optionally, add a hover effect */
-.flyout:hover {
   transform: translateX(0);
 }
 </style>

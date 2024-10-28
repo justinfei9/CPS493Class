@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { addToCart } from '@/models/shoppingCart' // Adjust the path accordingly
 import type { Product } from '@/models/products'
 
 const props = defineProps<{
   product: Product
 }>()
+
 const { product } = props
 </script>
 
@@ -17,7 +19,7 @@ const { product } = props
       <i>{{ product.brand }}</i>
       <p>{{ product.description }}</p>
       <p class="price">${{ product.price }}</p>
-      <button class="button is-success">Add to Cart</button>
+      <button class="button is-success" @click="addToCart(product)">Add to Cart</button>
     </div>
   </div>
 </template>
