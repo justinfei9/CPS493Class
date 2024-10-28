@@ -5,7 +5,9 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flyout" :class="{ isOpen: isOpen }"></div>
+  <div class="flyout" :class="{ isOpen: isOpen }">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped>
