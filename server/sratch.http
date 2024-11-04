@@ -12,6 +12,13 @@ MyHeader: MyValue
     "image": "https://dummyimage.com/300x300",
 }
 ###
-http://localhost:3000
+GET http://localhost:3000/about
+
+
+###
+GET http://localhost:3000/users
+
+###
+DELETE http://localhost:3000/users/1
 
 
