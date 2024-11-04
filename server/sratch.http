@@ -2,7 +2,7 @@
 https://google.com
 
 ###
-https://dummyjson.com/products/
+POST https://dummyjson.com/products/add
 MyHeader: MyValue
 
 {
@@ -11,3 +11,7 @@ MyHeader: MyValue
     "description": "This is a green lip stick",
     "image": "https://dummyimage.com/300x300",
 }
+###
+http://localhost:3000
+
+
