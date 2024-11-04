@@ -1,42 +1,29 @@
-const data = require("../data/users.json");
+const model = require("../model/users");
 const express = require("express");
 const app = express.Router();
 
 app
   .get("/", function (req, res) {
-    res.send(data.items);
+    res.send(model.getAll());
   })
   .get("/:id", function (req, res) {
     const id = parseInt(req.params.id, 10);
-    const user = data.items.find((user) => user.id === id);
+    const user = model.get(id);
     res.send(user);
   })
   .post("/", function (req, res) {
-    const user = req.body;
-    user.id =
-      data.items.reduce((prev, x) => (x.id > prev ? x.id : prev), 0) + 1;
-    data.items.push(user);
+    const user = model.add(req.body);
     res.send(user);
   })
   .patch("/:id", function (req, res) {
     const id = parseInt(req.params.id, 10);
-    const user = data.items.find((user) => user.id === id);
-    if (user) {
-      Object.assign(user, req.body);
-      res.send(user);
-    } else {
-      res.status(404).send({ error: "User not found" });
-    }
+    const user = model.update(id, req.body);
+    res.send(user);
   })
   .delete("/:id", function (req, res) {
-    const id = parseInt(req.params.id, 10);
-    const index = data.items.findIndex((user) => user.id === id);
-    if (index !== -1) {
-      data.items.splice(index, 1);
-      res.send(data.items);
-    } else {
-      res.status(404).send({ error: "User not found" });
-    }
+    const id = req.params.id;
+    const ret = mode.remove(id);
+    res.send(ret);
   });
 
 module.exports = app; // Export the router
