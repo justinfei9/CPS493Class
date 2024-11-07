@@ -19,5 +19,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  base: './',
+  build: {
+    outDir: '../Server/dist'
   }
 })

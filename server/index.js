@@ -7,7 +7,7 @@ const port = 3000;
 
 //middleware
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/dist"));
 
 //controllers
 app
