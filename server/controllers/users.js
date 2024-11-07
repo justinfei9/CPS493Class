@@ -22,7 +22,7 @@ app
   })
   .delete("/:id", function (req, res) {
     const id = req.params.id;
-    const ret = mode.remove(id);
+    const ret = model.remove(id);
     res.send(ret);
   });
 
