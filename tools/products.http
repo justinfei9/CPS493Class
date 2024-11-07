@@ -1,0 +1,23 @@
+###
+GET http://localhost:3000/products
+
+
+###
+GET http://localhost:3000/products/30
+
+###
+DELETE http://localhost:3000/products/1
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "title": "Delivery Drone",
+    "price": 1000,
+    "description": "A drone that delivers packages",
+    "thumbnail": "https://dummyimage.com/300x300",
+    "category": "electronics"
+}
+
+
