@@ -18,7 +18,10 @@ app
     res.send("About Us");
   })
   .use("/api/v1/users", userController)
-  .use("/api/v1/products", productController);
+  .use("/api/v1/products", productController)
+  .get("*", (req, res) => {
+    res.sendFile(__dirname + "/dist/index.html");
+  });
 
 app.listen(port, function () {
   console.log("Server is running on http://localhost:" + port);
