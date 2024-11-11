@@ -4,7 +4,7 @@
 const data = require("../data/Products.json");
 
 /**
- * @typedef {import("../../client/src/models/products").Product} product
+ * @typedef {import("../../client/src/models/products").Product} Product
  */
 
 /**
@@ -17,8 +17,7 @@ function getAll() {
 
 /**
  *
- *
- * @returns {product}
+ * @returns {Product}
  */
 function get(id) {
   return data.items.find((Product) => Product.id == id);
@@ -34,7 +33,7 @@ function add(Product) {
 /**
  *
  * @param {number} id
- * @param {} Product
+ * @param {Product} Product
  * @returns {Product}
  */
 function update(id, Product) {

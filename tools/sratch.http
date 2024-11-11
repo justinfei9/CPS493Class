@@ -16,9 +16,9 @@ GET http://localhost:3000/about
 
 
 ###
-GET http://localhost:3000/users
+GET http://localhost:3000/api/v1/users
 
 ###
-DELETE http://localhost:3000/users/1
+DELETE http://localhost:3000/api/v1/users/1
 
 

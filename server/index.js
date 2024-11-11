@@ -17,8 +17,8 @@ app
   .get("/about", function (req, res) {
     res.send("About Us");
   })
-  .use("/users", userController)
-  .use("/products", productController);
+  .use("/api/v1/users", userController)
+  .use("/api/v1/products", productController);
 
 app.listen(port, function () {
   console.log("Server is running on http://localhost:" + port);
