@@ -9,28 +9,32 @@ const app = express.Router();
 4. Body
 */
 app
-  .get("/", function (req, res) {
+  .get("/", function (req, res, next) {
     res.send(model.getAll());
   })
-  .get("/:id", function (req, res) {
+  .get("/:id", function (req, res, next) {
     const id = parseInt(req.params.id, 10);
     const product = model.get(id);
     res.send(product);
   })
-  .post("/", function (req, res) {
+  .post("/", function (req, res, next) {
     console.log("POST request received");
     console.log("Request body:", req.body);
     const product = model.add(req.body);
     res.send(product);
   })
-  .patch("/:id", function (req, res) {
+  .patch("/:id", function (req, res, next) {
     const id = parseInt(req.params.id, 10);
     const product = model.update(id, req.body);
     res.send(product);
   })
-  .delete("/:id", function (req, res) {
+  .delete("/:id", function (req, res, next) {
     const id = req.params.id;
     const ret = model.remove(id);
+    if (!ret) {
+      next({ message: "Product not found", status: 404 });
+      return;
+    }
     res.send(ret);
   });
 

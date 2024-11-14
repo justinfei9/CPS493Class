@@ -34,16 +34,19 @@ function add(Product) {
  *
  * @param {number} id
  * @param {Product} Product
- * @returns {Product}
+ * @returns {Promise<Product>}
  */
 function update(id, Product) {
   const ProductToUpdate = get(id);
   Object.assign(ProductToUpdate, Product);
-  return ProductToUpdate;
+  return Promise.resolve(ProductToUpdate);
 }
 
 function remove(id) {
   const ProductIndex = data.items.findIndex((Product) => Product.id == id);
+  if (ProductIndex === -1) {
+    return { success: false, message: "Product not found" };
+  }
   data.items.splice(ProductIndex, 1);
   return { success: true, message: "Product deleted", id: id };
 }
