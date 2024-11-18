@@ -1,6 +1,4 @@
-/**
- * type{{items: User[]}}
- */
+/** @type {{ items: User[] }} */
 const data = require("../data/users.json");
 
 /**
@@ -14,8 +12,8 @@ const data = require("../data/users.json");
  */
 
 /**
- * get all users
- *  * @returns {Promise<DataListEnvelope<User>>}
+ * Get all users
+ * @returns {Promise<DataListEnvelope<User>>}
  */
 async function getAll() {
   return {
@@ -26,7 +24,7 @@ async function getAll() {
 }
 
 /**
- *
+ * Get a user by id
  * @param {number} id
  * @returns {Promise<DataEnvelope<User>>}
  */
@@ -53,9 +51,9 @@ async function add(user) {
 }
 
 /**
- *
- * @param {*} id
- * @param {*} user
+ * Update a user
+ * @param {number} id
+ * @param {User} user
  * @returns {Promise<DataEnvelope<User>>}
  */
 async function update(id, user) {
