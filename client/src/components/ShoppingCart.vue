@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { refCart, count, total, removeFromCart } from '@/models/shoppingCart'
+
 const cart = refCart()
 </script>
 <template>
@@ -9,12 +10,13 @@ const cart = refCart()
       <p>Your cart is empty</p>
     </div>
     <div v-else>
-      <div v-for="item in cart" :key="item.product.id">
+      <div v-for="item in cart" :key="item.product.id" class="item">
         <img :src="item.product.thumbnail" :alt="item.product.title" />
         <button @click="removeFromCart(item.product)" style="float: right">
-          <i class="fas fa-trash has-text-danger-bold"></i>
+          <i class="fas fa-trash has-text-danger"></i>
         </button>
-        <div>{{ item.product.title }}</div>
+        <h3>{{ item.product.title }}</h3>
+
         <div>
           ${{ item.product.price }} *
           <select v-model="item.quantity">
@@ -29,22 +31,27 @@ const cart = refCart()
     </div>
   </div>
 </template>
+
 <style scoped>
 h3 {
   font-weight: bold;
 }
+
 .cart {
   padding: 1rem;
   overflow-y: auto;
 }
+
 .cart img {
   width: 50px;
   height: 50px;
   float: left;
+  padding: 10px;
 }
+
 .item {
-  padding-bottom: 10.5em;
-  margin-bottom: 10.5em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
   border-bottom: 1px ridge #ccc;
 }
 </style>
