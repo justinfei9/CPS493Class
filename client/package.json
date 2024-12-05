@@ -15,6 +15,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bulma": "^1.0.2",
+    "google": "^2.1.0",
     "vue": "^3.5.9",
     "vue-router": "^4.4.5",
     "vuee": "1.0.0-security"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
+    "@types/google.accounts": "^0.0.15",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",

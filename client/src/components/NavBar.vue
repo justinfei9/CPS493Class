@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import FlyoutPanel from '@/components/FlyoutPanel.vue'
 import ShoppingCart from '@/components/ShoppingCart.vue'
+import loginBadge from './loginBadge.vue'
 const isOpen = ref(false)
 const isCartOpen = ref(false)
 </script>
@@ -54,10 +55,7 @@ const isCartOpen = ref(false)
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light"> Log in </a>
+              <loginBadge />
               <button
                 class="button is-warning is-light is-active"
                 :class="{ 'is-focused': isCartOpen }"
