@@ -1,4 +1,4 @@
-import { loadScript } from './myFetch'
+import { loadScript, rest } from './myFetch'
 import { ref } from 'vue'
 
 interface Address {
@@ -111,21 +111,28 @@ export const useLogin = () => ({
     const tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
       scope: 'email',
-      callback: (response: any) => {
+      callback: async (response: any) => {
         console.log('response', response)
         if (response.access_token) {
           session.value.token = response.access_token
-          /*    
-          console.log(googleUser)
-              session.value.user = {
-                firstName: googleUser.given_name,
-                lastName: googleUser.family_name,
-                email: googleUser.email
-              }
-              console.log(session.value.user)
+
+          const googleUser = await rest<any>(
+            'https://www.googleapis.com/oauth2/v1/userinfo',
+            undefined,
+            'GET',
+            {
+              Authorization: `Bearer ${session.value.token}`
             }
-          })
-            */
+          )
+
+          console.log(googleUser)
+          session.value.user = {
+            firstName: googleUser.given_name,
+            lastName: googleUser.family_name,
+            email: googleUser.email,
+            image: googleUser.picture
+          }
+          console.log(session.value.user)
         }
       }
     })
