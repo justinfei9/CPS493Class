@@ -139,3 +139,28 @@ export const useLogin = () => ({
     tokenClient.requestAccessToken({})
   }
 })
+
+export async function getGoogleContacts() {
+  const contacts = await rest<any>(
+    'https://people.googleapis.com/v1/people/me/connections',
+    undefined,
+    'GET',
+    {
+      Authorization: `Bearer ${session.value.token}`
+    }
+  )
+  return contacts
+}
+
+export async function getGooglePhotos() {
+  const photos = await rest<any>(
+    'https://photoslibrary.googleapis.com/v1/mediaItems?pageSize=100',
+    undefined,
+    'GET',
+    {
+      Authorization: `Bearer ${session.value.token}`
+    }
+  )
+  console.log(photos)
+  return photos
+}
